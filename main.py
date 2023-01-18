@@ -20,6 +20,19 @@ def data_get():
         # mylist.insert(END,str(i))
 
 
+def dstart():
+    link = entry.get()
+    youtube_1 = YouTube(link)
+    videos = youtube_1.streams.all()
+    q = mylist.get(ANCHOR)
+    print(q[1])
+
+    #stream = int(input("Enter Quality index: "))
+    print("Downlaoding....")
+    videos[int(q[1])].download()
+    print("Successfully Downloaded ")
+
+
 win = Tk()
 win.title("Youtube downloader")
 win.config(bg="green")
@@ -38,7 +51,7 @@ go_button.place(x=650,y=140,height=50,width=110)
 mylist = Listbox(win)
 mylist.place(x=25,y=220,height=300,width=750)
 
-download_button = Button(win,text="DOWNLOAD",image=my_img,font=("Time New Roman",30,"bold"))
+download_button = Button(win,text="DOWNLOAD",image=my_img,font=("Time New Roman",30,"bold"),command=dstart)
 download_button.place(x=275,y=540,height=50,width=250)
 
 win.mainloop()
