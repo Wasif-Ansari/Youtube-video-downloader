@@ -23,4 +23,7 @@ go_button.place(x=650,y=140,height=50,width=110)
 mylist = Listbox(win)
 mylist.place(x=25,y=220,height=300,width=750)
 
+download_button = Button(win,text="DOWNLOAD",image=my_img,font=("Time New Roman",30,"bold"))
+download_button.place(x=275,y=540,height=50,width=250)
+
 win.mainloop()
