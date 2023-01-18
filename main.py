@@ -17,7 +17,10 @@ name.place(x=25, y=50,height=50,width=750)
 entry = Entry(win,font=("Times New Roman", 15, "bold"))
 entry.place(x=25,y=140,height=50,width=600)
 
-go_button = Button(win,text="GO>>",font=("Time New Roman",30,"bold"),command=data_get)
+go_button = Button(win,text="GO>>",font=("Time New Roman",30,"bold"))
 go_button.place(x=650,y=140,height=50,width=110)
+
+mylist = Listbox(win)
+mylist.place(x=25,y=220,height=300,width=750)
 
 win.mainloop()
