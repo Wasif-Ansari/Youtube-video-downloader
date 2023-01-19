@@ -11,13 +11,13 @@ def data_get():
     #print(youtube_1.thumbnail_url)
 
     videos = youtube_1.streams.all() #get all stream options
-    videos = youtube_1.streams.filter(progressive=True) #for only audioṇ
+    # videos = youtube_1.streams.filter(progressive=True) #for only audioṇ
     vid = list(enumerate(videos)) #indexing
     ans=""
     for i in vid:
-        b = str(i).split("res")
-        mylist.insert(END,b[1][1:8])
-        # mylist.insert(END,str(i))
+        # b = str(i).split("res")
+        # mylist.insert(END,b[1][1:8])
+        mylist.insert(END,str(i))
 
 
 def dstart():
@@ -26,7 +26,7 @@ def dstart():
     videos = youtube_1.streams.all()
     q = mylist.get(ANCHOR)
     print(q[1])
-
+    
     #stream = int(input("Enter Quality index: "))
     print("Downlaoding....")
     videos[int(q[1])].download()
