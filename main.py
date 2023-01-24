@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import ttk
 from PIL import ImageTk,Image
 
+mp = {}
 
 def data_get():
     link = entry.get()
@@ -15,9 +16,12 @@ def data_get():
     vid = list(enumerate(videos)) #indexing
     ans=""
     for i in vid:
-        # b = str(i).split("res")
-        # mylist.insert(END,b[1][1:8])
-        mylist.insert(END,str(i))
+        if "progressive=True" in i:
+            b = str(i).split("res")
+            mylist.insert(END,b[1][1:8])
+            # mylist.insert(END,str(i))
+            mp[b[1][1:8]] = str(i)[1]
+    print(mp)
 
 
 def dstart():
@@ -25,11 +29,10 @@ def dstart():
     youtube_1 = YouTube(link)
     videos = youtube_1.streams.all()
     q = mylist.get(ANCHOR)
-    print(q[1])
-    
+
     #stream = int(input("Enter Quality index: "))
     print("Downlaoding....")
-    videos[int(q[1])].download()
+    videos[int(mp[q])].download()
     print("Successfully Downloaded ")
 
 
